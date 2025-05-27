@@ -1,21 +1,17 @@
 @echo off
 
 IF NOT EXIST vendor (
-    composer install
+    call composer install
 )
 
-IF NOT EXIST .env (
-    copy .env.example .env
-)
-
-php artisan migrate --seed
-php artisan storage:link
+call php artisan migrate --seed
+call php artisan storage:link
 
 IF NOT EXIST node_modules (
-    npm install
+    call npm install
 )
 
-npm run build
+call npm run build
 
 php artisan serve
-start http://localhost:8000
+START http://localhost:8000

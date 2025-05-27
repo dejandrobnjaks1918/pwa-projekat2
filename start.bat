@@ -1,15 +1,21 @@
 @echo off
 
 IF NOT EXIST vendor (
-    echo Instalacija composer paketa...
     composer install
 )
 
-echo Pokretanje migracija i seedova...
-php artisan migrate --seed
+IF NOT EXIST .env (
+    copy .env.example .env
+)
 
-echo Kreiranje storage linka...
+php artisan migrate --seed
 php artisan storage:link
 
-echo Laravel server se pokreće na http://localhost:8000
+IF NOT EXIST node_modules (
+    npm install
+)
+
+npm run build
+
 php artisan serve
+start http://localhost:8000

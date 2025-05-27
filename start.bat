@@ -1,5 +1,10 @@
 @echo off
 
+IF NOT EXIST vendor (
+    echo Instalacija composer paketa...
+    composer install
+)
+
 echo Pokretanje migracija i seedova...
 php artisan migrate --seed
 

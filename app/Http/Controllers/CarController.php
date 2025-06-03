@@ -53,7 +53,7 @@ class CarController extends Controller
 
         Car::create($validated);
 
-        return redirect()->route('cars.index')->with('success', 'Vozilo je uspešno dodato.');
+        return redirect()->route('admin.cars.index')->with('success', 'Vozilo je uspešno dodato.');
     }
 
     /**
@@ -104,7 +104,7 @@ class CarController extends Controller
 
         $car->update($validated);
 
-        return redirect()->route('cars.index')->with('success', 'Vozilo je uspešno izmenjeno.');
+        return redirect()->route('admin.cars.index')->with('success', 'Vozilo je uspešno izmenjeno.');
     }
 
     /**
@@ -118,6 +118,6 @@ class CarController extends Controller
 
         $car->delete();
 
-        return redirect()->route('cars.index')->with('success', 'Vozilo je uspešno obrisano.');
+        return redirect()->route('admin.cars.index')->with('success', 'Vozilo je uspešno obrisano.');
     }
 }

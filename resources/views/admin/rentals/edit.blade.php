@@ -8,8 +8,8 @@
         @csrf
         @method('PUT')
         @include('admin.rentals.form')
-        <button type="submit" class="btn btn-primary">Sačuvaj izmene</button>
-        <a href="{{ route('admin.rentals.index') }}" class="btn btn-secondary">Nazad</a>
+        <button type="submit" class="btn btn-danger">Sačuvaj izmene</button>
+        <a href="{{ route('admin.rentals.index') }}" class="btn btn-danger">Nazad</a>
     </form>
 </div>
 @endsection
